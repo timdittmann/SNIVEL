@@ -33,7 +33,7 @@ def printProgressBar (iteration, total, prefix = '', suffix = '', decimals = 1, 
     bar = fill * filledLength + '-' * (length - filledLength)
     print('\r%s |%s| %s%% %s' % (prefix, bar, percent, suffix), end = printEnd)
     # Print New Line on Complete
-    if iteration == total: 
+    if iteration == total:
         print()
 
 def month_converter(month):
@@ -62,7 +62,7 @@ def doy2month(doy,year):
         else:
             dayind = dayind+dom[i]
             monind=monind+1
-            
+
     return month
 
 def doy_calc(year,month,day):
@@ -78,7 +78,7 @@ def gpsweekdow(year,doy):
     date = datetime.datetime(year, 1, 1) + datetime.timedelta(doy - 1)
     gpstime = (numpy.datetime64(date) - numpy.datetime64('1980-01-06T00:00:00'))/ numpy.timedelta64(1, 's')
     gpsweek = int(gpstime/604800)
-    gpsdow = math.floor((gpstime-gpsweek*604800)/86400)                   
+    gpsdow = math.floor((gpstime-gpsweek*604800)/86400)
     return(gpsweek, gpsdow)
 
 
@@ -142,7 +142,7 @@ def klobuchar(latsta,lonsta,elev,azimuth,tow,alpha,beta):
     b2 = float(beta[1])
     b3 = float(beta[2])
     b4 = float(beta[3])
-    
+
 
     elev = elev/180 #elevation angle in semicircles
     azimuth = azimuth*math.pi/180
@@ -197,14 +197,14 @@ def niell(elev,lat,alt,doy):
     aht = 2.53e-5
     bht = 5.49e-3
     cht = 1.14e-3
-    
+
     aavg15 = 1.2769934e-3
     bavg15 = 2.9153695e-3
     cavg15 = 62.610505e-3
     aamp15 = 0.0
     bamp15 = 0.0
     camp15 = 0.0
-    
+
     aavg30 = 1.2683230e-3
     bavg30 = 2.9152299e-3
     cavg30 = 62.837393e-3
@@ -232,7 +232,7 @@ def niell(elev,lat,alt,doy):
     aamp75 = 4.1202191e-5
     bamp75 = 11.723375e-5
     camp75 = 170.37206e-5
-    
+
 
     if (abs(lat) <= 15):
         aavg = aavg15
@@ -243,7 +243,7 @@ def niell(elev,lat,alt,doy):
         camp = camp15
 
 
-    if (abs(lat) > 15 and abs(lat) <= 30):       
+    if (abs(lat) > 15 and abs(lat) <= 30):
         amavg = 15.0/(aavg30-aavg15)
         aavg = (abs(lat) - 15)/amavg + aavg15
         amamp = 15.0/(aamp30-aamp15)
@@ -259,7 +259,7 @@ def niell(elev,lat,alt,doy):
         cmamp = 15.0/(camp30-camp15)
         camp = (abs(lat) - 15)/cmamp + camp15
 
-    if (abs(lat) > 30 and abs(lat) <= 45):       
+    if (abs(lat) > 30 and abs(lat) <= 45):
         amavg = 15.0/(aavg45-aavg30)
         aavg = (abs(lat) - 30)/amavg + aavg30
         amamp = 15.0/(aamp45-aamp30)
@@ -275,7 +275,7 @@ def niell(elev,lat,alt,doy):
         cmamp = 15.0/(camp45-camp30)
         camp = (abs(lat) - 30)/cmamp + camp30
 
-    if (abs(lat) > 45 and abs(lat) <= 60):       
+    if (abs(lat) > 45 and abs(lat) <= 60):
         amavg = 15.0/(aavg60-aavg45)
         aavg = (abs(lat) - 45)/amavg + aavg45
         amamp = 15.0/(aamp60-aamp45)
@@ -291,7 +291,7 @@ def niell(elev,lat,alt,doy):
         cmamp = 15.0/(camp60-camp45)
         camp = (abs(lat) - 45)/cmamp + camp45
 
-    if (abs(lat) > 60 and abs(lat) <= 75):       
+    if (abs(lat) > 60 and abs(lat) <= 75):
         amavg = 15.0/(aavg75-aavg60)
         aavg = (abs(lat) - 60)/amavg + aavg60
         amamp = 15.0/(aamp75-aamp60)
@@ -425,13 +425,13 @@ def niell_wet(elev, lat):
     Mwet = m
 
     return(Mwet)
-    
+
 def writesac(velfile,site,stalat,stalon,doy,year,samprate,event):
     a = numpy.loadtxt(velfile)
     tind = a[:,0]
     gtime = a[:,1]
     leapsec = gpsleapsec(gtime[0])
-    
+
     #Get the start time of the file in UTC
     date = datetime.datetime(int(year), 1, 1) + datetime.timedelta(int(doy) - 1)
     gpstime = (numpy.datetime64(date) - numpy.datetime64('1980-01-06T00:00:00'))/ numpy.timedelta64(1, 's')
@@ -445,7 +445,7 @@ def writesac(velfile,site,stalat,stalon,doy,year,samprate,event):
     stmin = sitem.minute
     stsec = sitem.second
 
-    
+
     nv = a[:,2]
     ev = a[:,3]
     uv = a[:,4]

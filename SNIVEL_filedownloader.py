@@ -57,7 +57,7 @@ def getsp3file(year, doy):
             print('Downloading final orbit file '+fname2)
             wget.download(url, out='nav/')
             os.system('gunzip' + ' ' + fname)
-            os.system('cp' + ' ' + fname2 + ' > nav/SNIVEL'+ week + dow + '.sp3' )           
+            os.system('cp' + ' ' + fname2 + ' > nav/SNIVEL'+ week + dow + '.sp3' )
         except Exception:
             print ('Final orbit not available, trying rapid orbits')
             fname = 'nav/igr' + week + dow + '.sp3.Z'
@@ -70,7 +70,7 @@ def getsp3file(year, doy):
                     print('Dpwnloading rapid orbit file '+fname2)
                     wget.download(url, out='nav/')
                     os.system('gunzip' + ' ' + fname)
-                    os.system('cp' + ' ' + fname2 + ' > nav/SNIVEL'+ week + dow + '.sp3' ) 
+                    os.system('cp' + ' ' + fname2 + ' > nav/SNIVEL'+ week + dow + '.sp3' )
                 except Exception:
                     print ('Rapid orbit not available, trying ultra-rapid orbits')
                     fname = 'nav/igu' + week + dow + '_12.sp3.Z'
@@ -98,9 +98,9 @@ def getsp3urfile(year, doy):
         url = 'ftp://cddis.gsfc.nasa.gov/gnss/products/' + week + '/igu' + week + dow + '_12.sp3.Z'
         print('Downloading final orbit file '+fname2)
         wget.download(url, out='nav/')
-        os.system('gunzip' + ' ' + fname)         
+        os.system('gunzip' + ' ' + fname)
 
-#This subroutine will download RINEX files given the station, year and day of year. 
+#This subroutine will download RINEX files given the station, year and day of year.
 def getrinex(site, year, doy):
     if not os.path.exists('rinex'): #if rinex folder doesn't exist, make it
         os.makedirs('rinex')
@@ -108,7 +108,7 @@ def getrinex(site, year, doy):
     fnamebz2 = 'rinex/' + site + doy + '0.' +  year[-2:] + 'd.bz2'
     fnamed = 'rinex/' + site + doy + '0.' +  year[-2:] + 'd'
     fnameo = 'rinex/' + site + doy + '0.' +  year[-2:] + 'o'
-    if (os.path.isfile(fnameo) == True):       
+    if (os.path.isfile(fnameo) == True):
         print ('Rinex file ' + fnameo + ' already exists')
     else:
         try:
@@ -158,16 +158,16 @@ def getrinexhr(site, year, doy):
     fnamecwud = 'rinex_hr/' + site + doy + 'i.' +  year[-2:] + 'd'
     fnamed = 'rinex_hr/' + site + doy + '0.' +  year[-2:] + 'd'
     fnameo = 'rinex_hr/' + site + doy + '0.' +  year[-2:] + 'o'
-    if (os.path.isfile(fnameo) == True):       
-        print ('Rinex file ' + fnameo + ' already exists')
+    if (os.path.isfile(fnamed) == True):
+        print ('Rinex file ' + fnamed + ' already exists')
     else:
         try:
             url = 'ftp://data-out.unavco.org/pub/highrate/1-Hz/rinex/' + year + '/' + doy + '/' + site + '/' + site + doy + '0.' +  year[-2:] + 'd.Z'
             print ('Attempting to download ' + fnamed + ' from UNAVCO')
             wget.download(url, out='rinex_hr/')
             os.system('gunzip' + ' ' + fnameZ)
-            os.system('./crx2rnx' + ' ' + fnamed)
-            os.remove(fnamed)
+            #os.system('/etc/crx2rnx' + ' ' + fnamed)
+            #os.remove(fnamed)
         except Exception:
             print ('File not at UNAVCO checking CWU')
             try:
@@ -190,5 +190,3 @@ def getrinexhr(site, year, doy):
 ##gettseries('p494')
 ##
 #getsp3file('2018','002')
-
-

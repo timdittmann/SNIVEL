@@ -60,7 +60,7 @@ with open(sitefile, 'rt') as g:
                         try:
                             getrinexhr(site, year, doy) #Download RINEX
 
-                            obsfile = 'rinex_hr/' + site + doy + '0.' +  year[-2:] + 'o' #rinex file name
+                            obsfile = 'rinex_hr/' + site + doy + '0.' +  year[-2:] + 'd' #rinex file name
                             navfile = 'nav/brdc' + doy + '0.' +  year[-2:] + 'n' #broadcast navigation file name
 
                             #use teqc to convert the rinex to remove comments within and remove non gps satellites
