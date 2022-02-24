@@ -11,3 +11,6 @@ RUN pip3 install georinex numpy==1.21 scipy urllib3 hatanaka wget obspy
 # numpy version : https://github.com/obspy/obspy/issues/2983
 
 COPY . .
+
+
+#docker run -it -v $(pwd)/output:/SNIVEL/output snivel /bin/bash

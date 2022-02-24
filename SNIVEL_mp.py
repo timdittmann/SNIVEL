@@ -41,14 +41,14 @@ elevmask = 7 #elevation mask
 # SNIVEL_mp.py
 # converted snivel.py to function to call from python multiprocessing module
 # this allows parallel processing of multiple stations at a time.
-#   * we call 2 less workers than are available on the host machine
+#   * calls 2 less workers than are available on the host machine
 # (I don't have a good sense of what the best number is, but intuit it depends on
 # where you are processing and for how long?)
-#   * we convert the datesfile and sitesfile to a queue for the snivel function
-#   * we remove the teqc dependency and instead filter using georinex args
-#   * we add the clock drift estimate to the output
+#   * converts the datesfile and sitesfile to a queue for the snivel function
+#   * removes the teqc dependency and instead filter using georinex args
+#   *  adds the clock drift estimate to the output
 #   * pushed crx2rnx uncompression from subprocess to pip hatanaka library within GR
-# changed urllib to urllib3
+#   * changed urllib to urllib3
 
 def make_sites_dates_list(sitefile, datefile):
     sites_dates_list=[]
