@@ -4,3 +4,4 @@ __pycache__/
 output/
 rinex_hr/
 nav/
+*.ipynb
