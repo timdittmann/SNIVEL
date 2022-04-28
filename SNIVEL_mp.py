@@ -250,7 +250,8 @@ def snivel_process(sites_dates_list):
 
         ffo.close()
         print ('Station ', site, ' complete')
-    except Exception:
+    except Exception as e:
+        print(e)
         print ('Station ', site, ' not available on date ', str(year), ' ', str(doy))
 
 def mp_handler():
