@@ -163,7 +163,7 @@ def getrinexhr(site, year, doy):
     else:
         try:
             url = 'ftp://data-out.unavco.org/pub/highrate/1-Hz/rinex/' + year + '/' + doy + '/' + site + '/' + site + doy + '0.' +  year[-2:] + 'd.Z'
-            url = 'ftp://data-out.unavco.org/pub/highrate/5-Hz/rinex/' + year + '/' + doy + '/' + site + '/' + site + doy + '0.' +  year[-2:] + 'd.Z'
+            url = 'https://data.unavco.org/archive/gnss/highrate/5-Hz/rinex/' + year + '/' + doy + '/' + site + '/' + site + doy + '0.' +  year[-2:] + 'd.Z'
             print ('Attempting to download ' + fnamed + ' from UNAVCO')
             wget.download(url, out='rinex_hr/')
             os.system('gunzip' + ' ' + fnameZ)
