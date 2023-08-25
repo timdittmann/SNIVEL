@@ -81,26 +81,21 @@ def snivel_process(sites_dates_list):
 
     #getbcorbit(year, doy) #Download broadcast orbit
     try:
-        getrinexhr(site, year, doy) #Download RINEX
+        #getrinexhr(site, year, doy) #Download RINEX
 
         obsfile = 'rinex_hr/' + site + doy + '0.' +  year[-2:] + 'd' #rinex file name
         navfile = 'nav/brdc' + doy + '0.' +  year[-2:] + 'n' #broadcast navigation file name
-        print(obsfile)
         header=gr.rinexheader(obsfile)#read the RINEX header
-
         (x0,y0,z0)=header['position'] #use the a priori location of the site from the RINEX header. If its really bad, you might want to change it
         samfreq = header['interval'] #interval between observations
         sampersec = int(1/float(samfreq)) #sampling rate
         [latsta,lonsta,altsta]=ecef2lla(float(x0),float(y0),float(z0)) #station lat and lon are needed for klobuchar correction
-
         nav = gr.load(navfile) #Load the broadcast navigation file
         [alpha,beta]=getklobucharvalues(navfile) #get klobuchar corrections from navigation file
-
         # convert y, doy, st, nummin into start/stop datestrings
         t=datetime.datetime.strptime(st, '%H:%M:%S')
         start=datetime.datetime(int(year), 1, 1) + datetime.timedelta(days=(int(doy)-1), hours=t.hour, minutes=t.minute, seconds=t.second)
         stop= start + datetime.timedelta(minutes=float(nummin))
-
         obs = gr.load(obsfile, use='G', tlim=[start.strftime("%Y-%m-%dT%H:%M:%S"), stop.strftime("%Y-%m-%dT%H:%M:%S")], meas=["L1", "L2"]) #Load the RINEX file
         L1 = obs['L1'].values#phase values
         L2 = obs['L2'].values
