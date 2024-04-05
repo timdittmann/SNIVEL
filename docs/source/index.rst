@@ -1,5 +1,7 @@
+:hide-toc:
+
 GNSS Velocity Data Center
-###########
+#########################
 
 A Prototype GNSS Velocity Data Center and Applications to Seismic Network Operations
 
@@ -34,7 +36,7 @@ A Prototype GNSS Velocity Data Center and Applications to Seismic Network Operat
    pages/community.md
 
 .. note::
-   This project is funded by NASA ROSES: NASA 22-ESI22-0004
+   This project is funded by NASA ROSES: 22-ESI22-0004
 
 |pic1|      |pic2|  |pic3|
 

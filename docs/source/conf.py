@@ -32,13 +32,22 @@ language = 'Python'
 
 html_theme = 'furo'
 html_static_path = ['_static']
-html_logo = "_static/logo-test.drawio.png"
+#html_logo = "_static/uw-logo.png"
+'''
 html_theme_options = {
     'logo_only': True,
     'display_version': False,
 }
+'''
 html_theme_options = {
-    "announcement": "<em>Pages Under Construction</em> announcement!",
+    "light_logo": "logo-test.png",
+    "dark_logo": "logo-test.png",
+    #"image": "_static/logo-test.png",
+    "source_repository": "https://github.com/timdittmann/SNIVEL",
+    "source_branch": "main",
+    "source_directory": "docs/",
 }
+
+
 
 html_title = "GNSS Velocity Data Center"

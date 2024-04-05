@@ -1,6 +1,8 @@
-# Method
+# Methods
 
 ## GPS Observation Equation
+
+testing math rendering:
 
 $$
 \frac{\partial u}{\partial t}=-u \frac{\partial u}{\partial x}-v \frac{\partial u}{\partial y}-w \frac{\partial u}{\partial z}+\frac{u v \tan \phi}{a}-\frac{u w}{a}-\frac{1}{\rho} \frac{\partial p}{\partial x}-2 \Omega(w \cos \phi-v \sin \phi)+F r_{x}
@@ -15,4 +17,4 @@ $$
            &=  a^2 + 2ab + b^2
 ```
 
-## Time Difference Carrier Phase
+## Time Differenced Carrier Phase
