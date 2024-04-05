@@ -1,0 +1,5 @@
+numpy
+scipy
+obspy
+urllib
+georinex
