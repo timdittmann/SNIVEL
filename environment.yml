@@ -1,0 +1,21 @@
+name: snivel
+channels:
+  - conda-forge
+  - defaults
+dependencies:
+  - nodejs
+  - python==3.11.*
+  - nbgitpuller=1.1.*
+  - jupyterlab
+  - jupyterhub-singleuser>3.0,<4.0
+  - jupyter-server-proxy
+  - pip
+  - urllib3
+  - numpy
+  - scipy
+  - obspy
+  - pip:
+    - wget
+    - georinex  
+    - hatanaka 
+    - earthscope-sdk
