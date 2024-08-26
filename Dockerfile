@@ -60,7 +60,7 @@ COPY . .
 
 USER root
 ENV PATH ${CONDA_DIR}/bin:$INSTALL_DIR:$PATH
-RUN chmod -R a+rwX ./output
+#RUN chmod -R a+rwX ./output
 
 # Install mambaforge as root
 COPY install-mambaforge.bash /tmp/install-mambaforge.bash
