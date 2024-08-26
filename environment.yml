@@ -14,8 +14,10 @@ dependencies:
   - numpy
   - scipy
   - obspy
+  - polars
   - pip:
     - wget
     - georinex  
     - hatanaka 
     - earthscope-sdk
+    - geopy

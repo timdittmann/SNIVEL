@@ -127,8 +127,8 @@ def getklobucharvalues(navfile):
     beta2 = beta.replace("D", "E")
     alp1= numpy.asarray(alpha2.split())
     bet1= numpy.asarray(beta2.split())
-    alp = alp1.astype(numpy.float) #numpy array of klobuchar alphas
-    bet = bet1.astype(numpy.float) #numpy array of klobuchar betas
+    alp = alp1.astype(numpy.float64) #numpy array of klobuchar alphas
+    bet = bet1.astype(numpy.float64) #numpy array of klobuchar betas
     return(alp,bet)
 
 #Klobuchar ionospheric correction
